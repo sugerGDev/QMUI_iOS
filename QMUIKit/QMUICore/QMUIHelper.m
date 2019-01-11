@@ -344,12 +344,12 @@ static NSInteger isNotchedScreen = -1;
         if (isNotchedScreen < 0) {
             // iOS 12，只要 init 完 window，window 的尺寸就已经被设定为当前 App 的大小了，所以可以通过是否有 safeAreaInsets 来动态判断。
             // 但 iOS 11 及以前无法通过这个方式动态判断，所以只能依靠物理设备的判断方式
-            if (@available(iOS 12, *)) {
-                UIWindow *window = [[UIWindow alloc] init];
-                isNotchedScreen = window.safeAreaInsets.bottom > 0 ? 1 : 0;
-            } else {
+//            if (@available(iOS 12, *)) {
+//                UIWindow *window = [[UIWindow alloc] init];
+//                isNotchedScreen = window.safeAreaInsets.bottom > 0 ? 1 : 0;
+//            } else {
                 isNotchedScreen = [QMUIHelper is58InchScreen] ? 1 : 0;
-            }
+//            }
         }
     } else {
         isNotchedScreen = 0;
